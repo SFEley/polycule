@@ -24,10 +24,40 @@ Further requirements shall be defined as needed.
 
 ## Data Model
 
-### People
+### Person
 
-### Connections
+Attributes:
+* Name (string)
+* Pronouns (string, filled by entry form for format consistency)
+* List of Connections (hashlist of pointers?)
+* Email address (optional)
+* Phone number (optional)
 
-## Contributing
+Methods:
+* (getters and setters......)
+* Person.AddConnection(*PersonB, bool Dotted, bool ArrowA, bool ArrowB)
+* Person.RemoveConnection(*PersonB)
+* Person.Notify(string Message) //sends a notification to preferred contact info, email and/or txt, as selected by user in their settings
+
+### Connection
+
+Attributes:
+* PersonA (pointer)
+* PersonB (pointer)
+* ArrowA (boolean, default 0)
+* ArrowB (boolean, default 0)
+* Dotted (boolean, default 0)
+* timestamp (set on creation)
+
+Methods:
+* Connection.GetPersons() //returns a list of 2 pointers to Persons
+* Connection.IsArrowToward(*Person)
+* Connection.AddArrowToward(*Person)
+* Connection.RemoveArrowToward(*Person)
+* Connection.MakeSolid()
+* Connection.MakeDotted()
+* Connection.Remove() //removes pointers from connection lists of persons, then deletes self
+
+## Contributin
 
 
